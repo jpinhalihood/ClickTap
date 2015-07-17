@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ClickTap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,64 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxR-0E-B0u" userLabel="tap surface">
+                                <rect key="frame" x="70" y="121" width="473" height="436"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="M5S-iX-e21" appends="YES" id="EFr-ko-Oy0"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LI-fp-ZQo">
+                                <rect key="frame" x="178" y="28" width="245" height="38"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="2ze-19-jg7"/>
+                                    <constraint firstAttribute="width" constant="245" id="KiB-J5-lhd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XfU-h1-qGP" userLabel="bpm indicator">
+                                <rect key="frame" x="402" y="45" width="15" height="15"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="2nL-1V-utK"/>
+                                    <constraint firstAttribute="height" constant="15" id="oaV-Ia-GJs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XfU-h1-qGP" firstAttribute="leading" secondItem="8LI-fp-ZQo" secondAttribute="trailing" constant="-21" id="171-Ip-SiO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8LI-fp-ZQo" secondAttribute="trailing" priority="750" constant="161" id="1Ka-Gn-Ngv"/>
+                            <constraint firstItem="8LI-fp-ZQo" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="Npn-2O-TWd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="HxR-0E-B0u" secondAttribute="bottom" constant="43" id="UXW-VL-IT5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HxR-0E-B0u" secondAttribute="trailing" constant="41" id="dYP-j7-erX"/>
+                            <constraint firstItem="HxR-0E-B0u" firstAttribute="top" secondItem="8LI-fp-ZQo" secondAttribute="bottom" constant="55" id="fG0-9M-FTh"/>
+                            <constraint firstItem="XfU-h1-qGP" firstAttribute="top" secondItem="8LI-fp-ZQo" secondAttribute="bottom" constant="-21" id="jDV-cV-b5v"/>
+                            <constraint firstItem="HxR-0E-B0u" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="54" id="jwN-P3-NzV"/>
+                            <constraint firstItem="HxR-0E-B0u" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="101" id="vbo-hR-v4h"/>
+                            <constraint firstAttribute="centerX" secondItem="8LI-fp-ZQo" secondAttribute="centerX" constant="-0.5" id="yUy-zm-MUm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bpmIndicator" destination="XfU-h1-qGP" id="6VF-80-BU1"/>
+                        <outlet property="bpmLabel" destination="8LI-fp-ZQo" id="J4r-s7-Vzt"/>
+                        <outlet property="tapButton" destination="HxR-0E-B0u" id="gLf-Ah-Ur9"/>
+                        <outlet property="tapGestureRecognizer" destination="M5S-iX-e21" id="oex-iu-JrO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="M5S-iX-e21">
+                    <connections>
+                        <action selector="buttonWasTapped" destination="vXZ-lx-hvc" id="MnW-1c-v8l"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="345" y="388"/>
         </scene>
     </scenes>
 </document>
